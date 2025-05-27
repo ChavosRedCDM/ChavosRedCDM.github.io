@@ -180,7 +180,7 @@ img {
     }
 
     .sidebar.visible {
-        left: 100; /* Lo mostramos cuando se active */
+        left: 0; /* Lo mostramos cuando se active */
     }
 
     .menu-btn {
@@ -375,9 +375,15 @@ document.addEventListener("DOMContentLoaded", function () {
     const menuBtn = document.querySelector(".menu-btn");
 
     menuBtn.addEventListener("click", function () {
-        sidebar.classList.toggle("visible");
+        if (sidebar.style.left === "0px") {
+            sidebar.style.left = "-100%"; // Oculta el sidebar
+        } else {
+            sidebar.style.left = "0px"; // Muestra el sidebar
+        }
     });
 });
+</script>
+
 </script>
 
 
