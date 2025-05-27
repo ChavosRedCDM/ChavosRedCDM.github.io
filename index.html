@@ -161,22 +161,26 @@ img {
     padding: 10px;
 }
 @media screen and (max-width: 768px) {
+    main {
+        width: 100%;
+        margin: 0 auto; /* Mantiene el texto estático y centrado */
+        text-align: center;
+    }
     .sidebar {
         position: fixed;
-        left: -100%;
+        left: -100%; /* Lo ocultamos inicialmente */
         top: 0;
-        width: 80%;
+        width: 70%; /* Reducimos el ancho para que no sea enorme */
         height: 100%;
-        background-color: rgba(237, 95, 97, 0.95); /* Fondo con ligera transparencia */
+        background-color: rgba(237, 95, 97, 0.95);
         padding: 20px;
-        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
         transition: left 0.3s ease-in-out;
         z-index: 1000;
-        display: block; /* Asegura que no esté oculto */
+        overflow-y: auto; /* Permite hacer scroll si el contenido es grande */
     }
 
     .sidebar.visible {
-        left: 0; /* Muestra el sidebar completamente sobre el contenido */
+        left: 0; /* Lo mostramos cuando se active */
     }
 
     .menu-btn {
@@ -187,7 +191,25 @@ img {
         padding: 10px;
         border-radius: 5px;
         cursor: pointer;
-        z-index: 1100; 
+        z-index: 1100;
+    }
+
+    .item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .item img {
+        width: 80%; /* Ajustamos el tamaño de los íconos para que no sean gigantes */
+    }
+
+    .descripcion {
+        font-size: 16px;
+        color: white;
+        text-align: center;
+        display: block;
     }
 }
 
@@ -357,6 +379,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 </script>
+
 
 
 <script>
