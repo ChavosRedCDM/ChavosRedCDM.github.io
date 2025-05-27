@@ -161,21 +161,28 @@ img {
     padding: 10px;
 }
 @media screen and (max-width: 768px) {
+    /* Ocultar sidebar por defecto */
     .sidebar {
         position: fixed;
         left: -100%;
         top: 0;
-        width: 80%; /* Ajusta el ancho del sidebar */
+        width: 80%;
         height: 100%;
-        background-color: #ed5f61;
+        background-color: rgba(237, 95, 97, 0.95); /* Fondo con ligera transparencia */
         padding: 20px;
         box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
         transition: left 0.3s ease-in-out;
-        z-index: 1000; /* Asegura que esté por encima del contenido */
+        z-index: 1000; /* Asegurar que se sobreponga al contenido */
     }
 
+    /* Cuando se activa, aparece sobre el contenido sin desplazarlo */
     .sidebar.visible {
-        left: 0; /* Muestra el sidebar completamente sobre el contenido */
+        left: 10px; /* Lo muestra sobre el contenido */
+    }
+
+    /* Ajustar el texto para que no se mueva */
+    main {
+        margin-left: 0; /* Esto impide que el texto se desplace */
     }
 
     .menu-btn {
@@ -186,9 +193,10 @@ img {
         padding: 10px;
         border-radius: 5px;
         cursor: pointer;
-        z-index: 1100; /* Se asegura de que el botón esté visible */
+        z-index: 1100; /* Mantener el botón visible */
     }
 }
+
 
 @media screen and (max-width: 768px) {
     footer {
@@ -353,6 +361,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 </script>
+
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
