@@ -161,58 +161,24 @@ img {
     padding: 10px;
 }
 @media screen and (max-width: 768px) {
-    main {
-        width: 100%;
-        margin: 0 auto; /* Mantiene el texto estático y centrado */
-        text-align: center;
-    }
     .sidebar {
-        position: fixed;
-        left: -100%; /* Lo ocultamos inicialmente */
-        top: 0;
-        width: 70%; /* Reducimos el ancho para que no sea enorme */
-        height: 100%;
-        background-color: rgba(237, 95, 97, 0.95);
-        padding: 20px;
-        transition: left 0.3s ease-in-out;
-        z-index: 1000;
-        overflow-y: auto; /* Permite hacer scroll si el contenido es grande */
-    }
-
-    .sidebar.visible {
-        left: 0; /* Lo mostramos cuando se active */
-    }
-
-    .menu-btn {
-        position: fixed;
-        top: 10px;
-        left: 10px;
-        background-color: #3cff2e;
-        padding: 10px;
-        border-radius: 5px;
-        cursor: pointer;
-        z-index: 1100;
-    }
-
-    .item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 20px;
-    }
-
-    .item img {
-        width: 80%; /* Ajustamos el tamaño de los íconos para que no sean gigantes */
-    }
-
-    .descripcion {
-        font-size: 16px;
-        color: white;
-        text-align: center;
-        display: block;
+        display: none; /* Oculta el sidebar en móviles */
     }
 }
 
+@media screen and (min-width: 769px) {
+    .sidebar {
+        display: block; /* Asegura que se muestre en computadoras */
+        position: fixed;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 200px;
+        background-color: #ed5f61;
+        padding: 20px;
+        border-radius: 10px;
+    }
+}
 
 @media screen and (max-width: 768px) {
     footer {
@@ -282,6 +248,38 @@ img {
     cursor: pointer;
     display: none;
 }
+@media screen and (min-width: 769px) {
+    .mobile-footer-btn {
+        display: none; /* Oculta el botón en laptops y computadoras */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .mobile-footer-btn {
+        display: flex; /* Muestra el botón en móviles */
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        background-color: #ed5f61;
+        border-radius: 5px;
+        width: 100%;
+    }
+
+    .mobile-footer-btn button {
+        font-size: 18px;
+        padding: 10px 20px;
+        background-color: #3cff2e;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+
+    .mobile-footer-btn button:hover {
+        transform: scale(1.1);
+    }
+}
 
 </style>
 </head>
@@ -296,8 +294,6 @@ function toggleDarkMode() {
     <nav>
     <img src="Imagenes/RedesSociales (1)/banner.png" alt="PapaCerdito" class="logo">
 </nav>
-
-   <button class="menu-btn">☰ Menú</button>
 <aside class="sidebar">
     <div class="item">
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSd9f0db9B7U_X2kKz1kn5CACPjNl63FVi_LALIBCtNj_zDUzw/viewform">
@@ -355,6 +351,11 @@ Este es tu lugar. Este es tu momento. Sé parte del cambio, sé parte de Chavos 
     <button id="scrollTopBtn">⬆</button>
 
      <footer>
+        <div class="mobile-footer-btn">
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSd9f0db9B7U_X2kKz1kn5CACPjNl63FVi_LALIBCtNj_zDUzw/viewform">
+        <button>☰ Únete Aquí</button>
+    </a>
+</div>
          <img src="Imagenes\DarkMode (1).svg" alt="Modo Oscuro" class="boton-dark" onclick="toggleDarkMode()">
 
         <p>Siguenos en redes: </p>
