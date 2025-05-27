@@ -375,14 +375,15 @@ document.addEventListener("DOMContentLoaded", function () {
     const menuBtn = document.querySelector(".menu-btn");
 
     menuBtn.addEventListener("click", function () {
-        if (sidebar.style.left === "0px") {
-            sidebar.style.left = "-100%"; // Oculta el sidebar
+        if (sidebar.style.transform === "translateX(0%)") {
+            sidebar.style.transform = "translateX(-100%)"; // Oculta el sidebar
         } else {
-            sidebar.style.left = "0px"; // Muestra el sidebar
+            sidebar.style.transform = "translateX(0%)"; // Muestra el sidebar correctamente
         }
     });
 });
 </script>
+
 
 </script>
 
